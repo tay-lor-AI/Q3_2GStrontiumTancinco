@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/43/e1/0b/43e10b7decaf31b47b68647e614e2550.jpg">
+    <link rel="stylesheet" href="formStyle.css">
+    <title>Club Application</title>
+    <meta name="description" content="Club Application for Emma's Club for School Year '26-'26">
+    <meta name="Emma Tancinco" content="YuStrontium29, tay-lor-AI">
+</head>
+
+<body>
+    <div id="form">
+        <form>
+            <fieldset>
+                <legend>Basic Information</legend>
+                <div class="form-content">
+                    <label for="studId">Student ID:</label>
+                    <input type="number" id="studId" name="studId" required>
+                </div>
+
+                <div class="form-content">
+                    <label for="fname">Full Name:</label>
+                    <input type="text" id="fname" name="fname" required>
+                </div>
+
+                <div class="form-content">
+                    <label for="bday">Birthday:</label>
+                    <input type="date" id="bday" name="bday" required>
+                </div>
+
+                <div class="form-content">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Other Information</legend>
+
+                <div class="form-content">
+                    <label for="phone#">Phone Number:</label>
+                    <input type="text" id="phone#" name="phone#" required>
+                </div>
+
+                <div class="form-content">
+                    <label for="glevl">Grade Level:</label>
+                    <select id="glevl" name="glevl" required>
+                        <option>Grade 7</option>
+                        <option>Grade 8</option>
+                        <option>Grade 9</option>
+                        <option>Grade 10</option>
+                        <option>Grade 11</option>
+                        <option>Grade 12</option>
+                    </select>
+                </div>
+
+                <div class="form-content">
+                    <p>Intern/Extern:</p>
+                    <label><input type="radio" name="dormey" value="Intern"> Intern</label>
+                    <label><input type="radio" name="dormey" value="Extern"> Extern</label>
+                </div>
+
+                <div class="form-content">
+                    <label for="club">Preferred Club:</label>
+                    <select id="club" name="club" required>
+                        <option>Theater Club</option>
+                        <option>Computer Club</option>
+                        <option>English Literature Club</option>
+                        <option>Choir Club</option>
+                        <option>Physics Club</option>
+                        <option>Sudoku Clubx</option>
+                    </select>
+                </div>
+
+                <p>Reason for Joining:</p>
+                <label for="bio">Reason for Joining:</label>
+                <textarea id="bio" name="bio" rows="4" maxlength="200"
+                    placeholder="Why do you want to apply?"></textarea>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>
