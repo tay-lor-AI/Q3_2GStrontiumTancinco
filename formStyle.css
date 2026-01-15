@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+body,
+input,
+h1 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+
 html {
     background-image: url('https://i.pinimg.com/736x/f5/7e/e7/f57ee7677c1afa517b82daefc9e01f9d.jpg');
     background-repeat: no-repeat;
@@ -10,6 +19,7 @@ html {
 .form-content p {
     display: block;
     margin-bottom: 6px;
+    font-family: Space Grotesk;
 }
 
 .form-content {
@@ -17,8 +27,42 @@ html {
     align-items: center;
     gap: 10px;
     margin-bottom: 12px;
+    font-family: Space Grotesk;
 }
 
 .form-content label {
     min-width: 120px;
+    font-family: Space Grotesk;
+}
+
+fieldset {
+    margin: auto;
+    width: 50%;
+    border: 8px solid rgb(211, 177, 255);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin: auto;
+    width: 50%;
+    margin-bottom: 15px;
+    font-size: 50px;
+}
+
+.buttonr {
+    display: inline-block;
+    margin: 0 8px;
+    padding: 8px 16px;
+}
+
+.buttonr:foucs {
+    color: rgb(211, 177, 255)
+}
+
+#buttonss {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
 }

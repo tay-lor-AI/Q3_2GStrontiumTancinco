@@ -12,28 +12,30 @@
 </head>
 
 <body>
-    <div id="form">
-        <form>
+    <h1>Club Application Form</h1>
+    <div class="inputy" id="form">
+        <form method="post">
             <fieldset>
                 <legend>Basic Information</legend>
                 <div class="form-content">
                     <label for="studId">Student ID:</label>
-                    <input type="number" id="studId" name="studId" required>
+                    <input type="number" class="inputy" id="studId" name="studId" required
+                        placeholder="Type in Student ID">
                 </div>
 
                 <div class="form-content">
                     <label for="fname">Full Name:</label>
-                    <input type="text" id="fname" name="fname" required>
+                    <input type="text" class="inputy" id="fname" name="fname" required placeholder="Type in Full Name">
                 </div>
 
                 <div class="form-content">
                     <label for="bday">Birthday:</label>
-                    <input type="date" id="bday" name="bday" required>
+                    <input type="date" class="inputy" id="bday" name="bday" required>
                 </div>
 
                 <div class="form-content">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" class="inputy" id="email" name="email" required placeholder="Type in Email">
                 </div>
             </fieldset>
 
@@ -42,12 +44,13 @@
 
                 <div class="form-content">
                     <label for="phone#">Phone Number:</label>
-                    <input type="text" id="phone#" name="phone#" required>
+                    <input type="text" class="inputy" id="phone#" name="phone#" required
+                        placeholder="Type in Phone Number">
                 </div>
 
                 <div class="form-content">
                     <label for="glevl">Grade Level:</label>
-                    <select id="glevl" name="glevl" required>
+                    <select class="inputy" id="glevl" name="glevl" required>
                         <option>Grade 7</option>
                         <option>Grade 8</option>
                         <option>Grade 9</option>
@@ -65,23 +68,55 @@
 
                 <div class="form-content">
                     <label for="club">Preferred Club:</label>
-                    <select id="club" name="club" required>
+                    <select class="inputy" id="club" name="club" required>
                         <option>Theater Club</option>
                         <option>Computer Club</option>
                         <option>English Literature Club</option>
                         <option>Choir Club</option>
                         <option>Physics Club</option>
-                        <option>Sudoku Clubx</option>
+                        <option>Sudoku Club</option>
                     </select>
                 </div>
 
-                <p>Reason for Joining:</p>
-                <label for="bio">Reason for Joining:</label>
-                <textarea id="bio" name="bio" rows="4" maxlength="200"
+                <label for="reason">Reason for Joining:</label>
+                <textarea class="inputy" id="reason" name="reason" rows="4" maxlength="200"
                     placeholder="Why do you want to apply?"></textarea>
             </fieldset>
+            <div id="buttonss">
+                <input type="submit" value="Submit" class="buttonr"
+                    onclick="return confirm('Are you sure you want to submit?');">
+                <input type="reset" value="Reset" class="buttonr"
+                    onclick="return confirm('Are you sure you want to reset all fields?');">
+            </div>
         </form>
+        <script>
+            const inputs = document.querySelectorAll(".inputy");
+            inputs.forEach(input => {
+                input.addEventListener("focus", function () {
+                    this.style.backgroundColor = "yellow";
+                });
+
+                input.addEventListener("blur", function () {
+                    this.style.backgroundColor = "";
+                });
+            });
+
+            const fields = document.querySelectorAll('.inputy');
+
+            fields.forEach(field => {
+                field.addEventListener("blur", function () {
+                    if (this.value.trim() === "") {
+                        this.style.border = "2px solid red";
+                        this.style.backgroundColor = "#ffe6e6";
+                    } else {
+                        this.style.border = "";
+                        this.style.backgroundColor = "";
+                    }
+                });
+            });
+        </script>
     </div>
+
 </body>
 
 </html>
