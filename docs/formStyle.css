@@ -54,10 +54,18 @@ h1 {
     display: inline-block;
     margin: 0 8px;
     padding: 8px 16px;
+    transition: transform 0.3s ease-in-out;
 }
 
-.buttonr:foucs {
-    color: rgb(211, 177, 255)
+.buttonr:focus {
+    background-color: rgb(198, 161, 249);
+    transform: scale(1.1);
+
+}
+
+.buttonr:hover {
+    background-color: rgb(183, 163, 210);
+    transform: scale(1.1);
 }
 
 #buttonss {
