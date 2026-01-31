@@ -92,26 +92,19 @@
         </form>
         <script>
             const inputs = document.querySelectorAll(".inputy");
+
             inputs.forEach(input => {
                 input.addEventListener("focus", function () {
-                    this.style.backgroundColor = "pink";
+                    this.classList.add("input-focus");
                 });
 
                 input.addEventListener("blur", function () {
-                    this.style.backgroundColor = "";
-                });
-            });
+                    this.classList.remove("input-focus");
 
-            const fields = document.querySelectorAll('.inputy');
-
-            fields.forEach(field => {
-                field.addEventListener("blur", function () {
                     if (this.value.trim() === "") {
-                        this.style.border = "2px solid red";
-                        this.style.backgroundColor = "#ffe6e6";
+                        this.classList.add("input-error");
                     } else {
-                        this.style.border = "";
-                        this.style.backgroundColor = "";
+                        this.classList.remove("input-error");
                     }
                 });
             });
