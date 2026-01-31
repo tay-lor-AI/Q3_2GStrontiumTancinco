@@ -14,6 +14,13 @@ html {
     background-size: cover;
 }
 
+a {
+    display: flex;
+    margin: auto;
+    margin-top: 0px;
+    width: 50%;
+}
+
 .form-content label,
 .form-content select,
 .form-content p {
@@ -46,7 +53,6 @@ fieldset {
 h1 {
     margin: auto;
     width: 50%;
-    margin-bottom: 15px;
     font-size: 50px;
 }
 

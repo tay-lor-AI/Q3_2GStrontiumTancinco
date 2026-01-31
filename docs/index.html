@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/43/e1/0b/43e10b7decaf31b47b68647e614e2550.jpg">
-    <link rel="stylesheet" href="formStyle.css">
+    <link rel="stylesheet" href="listStyle.css">
     <title>Club Application</title>
-    <meta name="description" content="Club Application for Emma's Club for School Year '26-'26">
-    <meta name="Emma Tancinco" content="YuStrontium29, tay-lor-AI">
+    <meta name="description" content="Complete List of Club Application for Emma's Club for School Year '26-'26">
+    <meta name="Emma Tancinco" content="tay-lor-AI">
 </head>
 
 <body>
     <h1>Club Application Form</h1>
+    <a href="list.html">input list</a>
     <div class="inputy" id="form">
         <form method="post">
             <fieldset>
@@ -43,8 +44,8 @@
                 <legend>Other Information</legend>
 
                 <div class="form-content">
-                    <label for="phone#">Phone Number:</label>
-                    <input type="text" class="inputy" id="phone#" name="phone#" required
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" class="inputy" id="phone" name="phone" required
                         placeholder="Type in Phone Number">
                 </div>
 
@@ -93,7 +94,7 @@
             const inputs = document.querySelectorAll(".inputy");
             inputs.forEach(input => {
                 input.addEventListener("focus", function () {
-                    this.style.backgroundColor = "yellow";
+                    this.style.backgroundColor = "pink";
                 });
 
                 input.addEventListener("blur", function () {
@@ -114,6 +115,45 @@
                     }
                 });
             });
+
+            //all of the required data!
+            const form = document.querySelector("form");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                if (!confirm("Are you sure you want to submit?")) return;
+
+                // collect data
+                const data = {
+                    studentId: document.getElementById("studId").value,
+                    fullName: document.getElementById("fname").value,
+                    birthday: document.getElementById("bday").value,
+                    email: document.getElementById("email").value,
+                    phone: document.getElementById("phone").value,
+                    gradeLevel: document.getElementById("glevl").value,
+                    dormType: document.querySelector('input[name="dormey"]:checked')?.value || "",
+                    club: document.getElementById("club").value,
+                    reason: document.getElementById("reason").value,
+                    timestamp: new Date().toISOString()
+                };
+
+                // gets the data already there
+                let apps = localStorage.getItem("clubApps");
+
+                if (apps) {
+                    apps = JSON.parse(apps);
+                } else {
+                    apps = [];
+                }
+
+                // saves
+                apps.push(data);
+                localStorage.setItem("clubApps", JSON.stringify(apps));
+
+                alert("Application saved successfully!");
+
+
         </script>
     </div>
 

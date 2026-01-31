@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/43/e1/0b/43e10b7decaf31b47b68647e614e2550.jpg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+
+        html {
+            background-image: url('https://i.pinimg.com/736x/f5/7e/e7/f57ee7677c1afa517b82daefc9e01f9d.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid rgb(211, 177, 255);
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgb(183, 163, 210);
+        }
+    </style>
+    <title>Club Application List</title>
+    <meta name="description" content="Club Application for Emma's Club for School Year '26-'26">
+    <meta name="Emma Tancinco" content="tay-lor-AI">
+</head>
+
+<body>
+    <h1>List of Club Applications</h1>
+    <a href="index.html">back to application</a>
+    <br>
+
+    <label for="clubFilter">Filter by Club:</label>
+    <select id="clubFilter">
+        <option value="all">All Clubs</option>
+    </select>
+
+    <table id="signupTable">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Grade</th>
+                <th>Intern / Extern</th>
+                <th>Club</th>
+                <th>Reason</th>
+                <th>Date Submitted</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- data -->
+        </tbody>
+    </table>
+    <script>
+        const tableBody = document.querySelector("#signupTable tbody");
+        const clubFilter = document.getElementById("clubFilter");
+
+        // get data
+        let apps = localStorage.getItem("clubApps");
+
+        if (!apps) {
+            tableBody.innerHTML = "<tr><td colspan='10'>No submissions found.</td></tr>";
+        } else {
+            apps = JSON.parse(apps);
+
+            // populate dropdown with unique clubs
+            const clubs = [...new Set(apps.map(a => a.club))];
+            clubs.forEach(c => {
+                const option = document.createElement("option");
+                option.value = c;
+                option.textContent = c;
+                clubFilter.appendChild(option);
+            });
+
+            renderTable(apps);
+        }
+
+        function renderTable(data) {
+            tableBody.innerHTML = "";
+
+            if (data.length === 0) {
+                tableBody.innerHTML = "<tr><td colspan='10'>No matching submissions.</td></tr>";
+                return;
+            }
+
+            data.forEach(s => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+            <td>${s.studentId}</td>
+            <td>${s.fullName}</td>
+            <td>${s.birthday}</td>
+            <td>${s.email}</td>
+            <td>${s.phone}</td>
+            <td>${s.gradeLevel}</td>
+            <td>${s.dormType}</td>
+            <td>${s.club}</td>
+            <td>${s.reason}</td>
+            <td>${new Date(s.timestamp).toLocaleString()}</td>
+        `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // filter
+        clubFilter.addEventListener("change", () => {
+            const selected = clubFilter.value;
+
+            if (selected === "all") {
+                renderTable(apps);
+            } else {
+                const filtered = apps.filter(a => a.club === selected);
+                renderTable(filtered);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
