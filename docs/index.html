@@ -143,7 +143,8 @@
 
                 if (apps) {
                     apps = JSON.parse(apps);
-                } else {
+                }
+                else {
                     apps = [];
                 }
 
@@ -151,8 +152,9 @@
                 apps.push(data);
                 localStorage.setItem("clubApps", JSON.stringify(apps));
 
-                alert("Application saved successfully!");
+                form.reset();
 
+            });
 
         </script>
     </div>
